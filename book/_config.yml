@@ -1,0 +1,59 @@
+title: 技術書を出版するまでの1161時間50分38秒
+author: Kakeami
+logo: images/clock.png
+
+execute:
+  execute_notebooks: off
+
+latex:
+  latex_documents:
+    targetname: book.tex
+
+bibtex_bibfiles:
+  - references.bib
+
+repository:
+  url: https://github.com/kakeami/road-to-vizbook # Online location of your book
+  path_to_book: book # Optional path to your book, relative to the repository root
+  branch: master  # Which branch of the repository should be used when creating links (optional)
+
+html:
+  favicon: images/clock.png
+  use_issues_button: true
+  use_repository_button: true
+  use_multitoc_numbering: true
+  home_page_in_navbar: false
+  #google_analytics_id: "UA-195969608-1"
+  extra_footer: |
+    © Copyright 2026 by <a rel="kakeami" href="https://github.com/kakeami"> Kakeami </a>. このブログは<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 ライセンス</a>の下に提供されています． <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>　ただし，ブログ中のコードセル部分は<a rel="license" href="https://opensource.org/licenses/MIT">MITライセンス</a>の下に提供されています．
+
+sphinx:
+  config:
+    # Plotly
+    html_js_files:
+    - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
+    html_show_copyright: false
+    myst_links_external_new_tab: true
+    exclude_patterns:
+      - "02/old/*"
+      - "appendix/references.md"
+      - "_build"
+      - "Thumbs.db"
+      - ".DS_Store"
+    # 特定の警告を無視する設定
+    suppress_warnings:
+      - mystnb.unknown_mime_type
+
+
+parse:
+  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_admonition
+    - html_image
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution

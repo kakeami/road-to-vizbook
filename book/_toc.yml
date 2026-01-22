@@ -1,0 +1,28 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: index.md
+parts:
+  - caption: データの準備
+    numbered: True
+    chapters:
+     - file: 01/track.md
+     - file: 01/download.ipynb
+     - file: 01/preprocess.ipynb
+     - file: 01/eda.ipynb
+  - caption: データの可視化
+    numbered: True
+    chapters:
+     - file: 02/amounts.ipynb
+     - file: 02/dists.ipynb
+     - file: 02/props.ipynb
+     - file: 02/assocs.ipynb
+  - caption: あとがき
+    numbered: True
+    chapters:
+    - file: 03/outro.md
+#  - caption: Appendix
+#    numbered: False
+#    chapters:
+#    - file: appendix/references
