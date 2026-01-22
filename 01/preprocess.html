@@ -1,0 +1,2141 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3. 前処理 &#8212; 技術書を出版するまでの1161時間50分38秒</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '01/preprocess';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/clock.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. 基礎分析" href="eda.html" />
+    <link rel="prev" title="2. 取得" href="download.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/clock.png" class="logo__image only-light" alt="技術書を出版するまでの1161時間50分38秒 - Home"/>
+    <script>document.write(`<img src="../_static/clock.png" class="logo__image only-dark" alt="技術書を出版するまでの1161時間50分38秒 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">データの準備</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="track.html">1. 記録</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download.html">2. 取得</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. 前処理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eda.html">4. 基礎分析</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">データの可視化</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../02/amounts.html">5. 量を見る</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02/dists.html">6. 分布を見る</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02/props.html">7. 内訳を見る</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02/assocs.html">8. 関係を見る</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">あとがき</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../03/outro.html">9. おわりに</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/kakeami/road-to-vizbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/kakeami/road-to-vizbook/issues/new?title=Issue%20on%20page%20%2F01/preprocess.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/01/preprocess.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>前処理</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.1. 環境構築</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.2. 執筆時間・睡眠時間の前処理</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.2.1. 概要確認</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-formatting">3.2.2. タスクの粒度調整と分類</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">3.2.3. データの加工</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">3.3. 草稿の前処理</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">3.3.1. 概要確認</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draft-stats">3.3.2. 統計情報の取得</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">3.4. 前処理のまとめ</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">3. </span>前処理<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/ov3.png" /></p>
+<p>執筆時間の分析に必要なデータの前処理について説明します。
+具体的には、Togglから取得した生のデータを整形し、分析に適した形に加工します。
+また、個人的に興味があったため、草稿の集計情報も取得します。</p>
+<section id="id2">
+<h2><span class="section-number">3.1. </span>環境構築<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>前処理を行うために必要なライブラリをインポートし、定数を定義します。
+また、データの入出力先となるディレクトリも作成しておきます。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># JSONデータを扱うためのモジュールをインポート</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="c1"># ファイルパスを扱うためのPathlibモジュールをインポート</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># 型ヒントを定義するためのtypingモジュールから、DictとUnionをインポート</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="c1"># NumPyライブラリをnpという別名でインポート</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># データ処理・分析ライブラリのPandasをインポート</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Togglデータのディレクトリパス</span>
+<span class="n">DIR_TOGGL</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;../../data/tmp/toggl&quot;</span><span class="p">)</span>
+
+<span class="c1"># 前処理後のデータを保存するディレクトリパス</span>
+<span class="n">DIR_PREP</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;../../data/tmp/prep&quot;</span><span class="p">)</span>
+
+<span class="c1"># 原稿データのディレクトリパス</span>
+<span class="n">DIR_DRAFT</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;../../data/input&quot;</span><span class="p">)</span>
+
+<span class="c1"># 最終的な出力データを保存するディレクトリパス</span>
+<span class="n">DIR_OUT</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;../../data/tmp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 出力先ディレクトリを作成</span>
+<span class="c1"># exist_ok=Trueで、ディレクトリが既に存在する場合にエラーを発生させない</span>
+<span class="c1"># parents=Trueで、必要な親ディレクトリも同時に作成</span>
+<span class="n">DIR_PREP</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">DIR_OUT</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>また、jsonファイルの読み書きに関する関数を定義しておきます。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">NpEncoder</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">JSONEncoder</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    numpyのデータ型やPosixPathをJSONエンコードするためのカスタムエンコーダー</span>
+
+<span class="sd">    numpyのデータ型をPythonの標準型に変換し、その後JSONにエンコード可能な形にする</span>
+<span class="sd">    JSONには直接エンコードできない型もあるため、このようなエンコーダーが必要となる</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        numpyデータ型を標準のPython型に変換するカスタムメソッド</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        obj : Any</span>
+<span class="sd">            エンコード対象のオブジェクト</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Any</span>
+<span class="sd">            エンコード可能な型に変換されたオブジェクト</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">Path</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">NpEncoder</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">save_json</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span> <span class="n">dct</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    辞書をJSON形式でファイルに保存する</span>
+
+<span class="sd">    辞書を受け取り、指定されたパスにJSON形式で保存する</span>
+<span class="sd">    JSONファイルは人間が読みやすい形式でインデントされる</span>
+<span class="sd">    numpy型はNpEncoderを使用して適切にエンコードされる</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path : Union[str, Path]</span>
+<span class="sd">        JSONファイルの保存先 文字列またはPathオブジェクト</span>
+<span class="sd">    dct : Dict</span>
+<span class="sd">        保存する辞書</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">dct</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">NpEncoder</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">read_json</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    JSONファイルを読み込み、辞書として返す</span>
+
+<span class="sd">    指定されたパスのJSONファイルを開き、その内容を辞書として読み込む</span>
+<span class="sd">    JSONデータはPythonの辞書型で表される</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path : Union[str, Path]</span>
+<span class="sd">        読み込み対象のファイルのパス 文字列またはPathオブジェクト</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Dict</span>
+<span class="sd">        ファイルから読み込まれたJSONデータを表す辞書</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">dct</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dct</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="id3">
+<h2><span class="section-number">3.2. </span>執筆時間・睡眠時間の前処理<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>まず、Togglから取得した生データを加工し、</p>
+<ul class="simple">
+<li><p>執筆時間</p></li>
+<li><p>睡眠時間</p></li>
+</ul>
+<p>に分けて保存します。</p>
+<section id="id4">
+<h3><span class="section-number">3.2.1. </span>概要確認<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Togglから取得した執筆時間データの概要を確認します。</p>
+<p>まず、<code class="docutils literal notranslate"><span class="pre">raw_*.csv</span></code>ファイルを読み取りましょう。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIR_TOGGL内の&quot;raw_&quot;で始まるファイルのパスを取得し、ソートする</span>
+<span class="n">ps_read</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">DIR_TOGGL</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;raw_*&quot;</span><span class="p">)))</span>
+
+<span class="c1"># ps_readのファイルパスを順にread_csvで読み込み、リストに格納</span>
+<span class="c1"># リストの要素（DataFrameオブジェクト）をconcatで連結し、一つのDataFrameにまとめる</span>
+<span class="c1"># ignore_index=Trueで、元のインデックスを無視し、新しいインデックスを付与</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps_read</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>執筆時間を記録したプロジェクトIDは<code class="docutils literal notranslate"><span class="pre">180059875</span></code>でした。
+どのようなデータが格納されているか、<code class="docutils literal notranslate"><span class="pre">head</span></code>メソッドを用いて確認してみましょう。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dfから該当のプロジェクトIDを持つ行を抽出する</span>
+<span class="c1"># 抽出したDataFrameのうち、最初の5行を表示する</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;project_id&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">180059875</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>project_id</th>
+      <th>description</th>
+      <th>date</th>
+      <th>seconds</th>
+      <th>row_number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2424</th>
+      <td>180059875</td>
+      <td>MADB/マンガと学ぶデータビジュアライゼーション</td>
+      <td>2021-12-08</td>
+      <td>1072</td>
+      <td>711</td>
+    </tr>
+    <tr>
+      <th>2425</th>
+      <td>180059875</td>
+      <td>MADB/マンガと学ぶデータビジュアライゼーション</td>
+      <td>2021-12-08</td>
+      <td>203</td>
+      <td>712</td>
+    </tr>
+    <tr>
+      <th>2426</th>
+      <td>180059875</td>
+      <td>MADB/マンガと学ぶデータビジュアライゼーション</td>
+      <td>2021-12-08</td>
+      <td>1094</td>
+      <td>713</td>
+    </tr>
+    <tr>
+      <th>2427</th>
+      <td>180059875</td>
+      <td>MADB/マンガと学ぶデータビジュアライゼーション</td>
+      <td>2021-12-08</td>
+      <td>862</td>
+      <td>714</td>
+    </tr>
+    <tr>
+      <th>2429</th>
+      <td>180059875</td>
+      <td>MADB/マンガと学ぶデータビジュアライゼーション</td>
+      <td>2021-12-08</td>
+      <td>1582</td>
+      <td>716</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</details>
+</div>
+<p>タスクの詳細を表す<code class="docutils literal notranslate"><span class="pre">description</span></code>列を基準に、作業秒数<code class="docutils literal notranslate"><span class="pre">seconds</span></code>列を集計してみましょう。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># project_id 180059875に該当する行を抽出</span>
+<span class="c1"># 抽出した行を&quot;description&quot;列でグループ化し、&quot;seconds&quot;列の合計を計算</span>
+<span class="c1"># 計算結果を値で昇順ソートし、reset_index()でインデックスを振り直し</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;project_id&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">180059875</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">)[</span>
+    <span class="s2">&quot;seconds&quot;</span>
+<span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>description</th>
+      <th>seconds</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>MADBで始めるデータビジュアライゼーション</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>校正・校閲/練習問題/vol2-01最終確認</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>parallel.ipynb</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>校正・校閲/練習問題/下巻3章見直し</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>校正・校閲/練習問題/下巻4章見直し</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>394</th>
+      <td>Web/執筆時間分析</td>
+      <td>264647</td>
+    </tr>
+    <tr>
+      <th>395</th>
+      <td>8章/変数間の関係を見たい</td>
+      <td>265904</td>
+    </tr>
+    <tr>
+      <th>396</th>
+      <td>9章/メディア展開分析</td>
+      <td>316937</td>
+    </tr>
+    <tr>
+      <th>397</th>
+      <td>1章/データビジュアライゼーションとは</td>
+      <td>412535</td>
+    </tr>
+    <tr>
+      <th>398</th>
+      <td>2章/マンガデータによるハンズオン</td>
+      <td>510543</td>
+    </tr>
+  </tbody>
+</table>
+<p>399 rows × 2 columns</p>
+</div></div></div>
+</details>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">description</span></code>列は粒度が揃っていないようです。
+章別にまとまっているものもあれば、非常に細かいものもあります。
+このまま可視化に用いるのは筋が良いとは思えません。</p>
+<p>そこで、<code class="docutils literal notranslate"><span class="pre">description</span></code>列に代わるタスク情報を
+<strong>手作業で</strong>
+追加することにしましょう。
+効率的に作業を進めるため、<code class="docutils literal notranslate"><span class="pre">description</span></code>別の統計情報を整理します。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &quot;description&quot;列でグループ化し、各グループの&quot;date&quot;列の最大・最小値を取得</span>
+<span class="c1"># 結果を辞書形式で保存: キーは&quot;description&quot;、値は最大・最小の&quot;date&quot;</span>
+<span class="n">desc2fdate</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">)[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">desc2ldate</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">)[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+
+<span class="c1"># &quot;description&quot;列でグループ化し、各グループの&quot;seconds&quot;列の合計を計算</span>
+<span class="c1"># 結果を&quot;seconds&quot;列の値で昇順にソート</span>
+<span class="c1"># reset_index()でインデックスを振り直し、新しいDataFrameを作成</span>
+<span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">)[</span><span class="s2">&quot;seconds&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="c1"># desc2fdateを用いて、&quot;description&quot;列に対応する最小の&quot;date&quot;を取得</span>
+<span class="c1"># 結果を&quot;first_date&quot;列として追加</span>
+<span class="n">df_tmp</span><span class="p">[</span><span class="s2">&quot;first_date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">desc2fdate</span><span class="p">)</span>
+
+<span class="c1"># desc2ldateを用いて、&quot;description&quot;列に対応する最大の&quot;date&quot;を取得</span>
+<span class="c1"># 結果を&quot;last_date&quot;列として追加</span>
+<span class="n">df_tmp</span><span class="p">[</span><span class="s2">&quot;last_date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">desc2ldate</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>作成したデータフレームを確認してみましょう。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 作成したDataFrameの概要を確認</span>
+<span class="n">df_tmp</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>description</th>
+      <th>seconds</th>
+      <th>first_date</th>
+      <th>last_date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>MADBで始めるデータビジュアライゼーション</td>
+      <td>4</td>
+      <td>2022-01-06</td>
+      <td>2022-01-06</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>校正・校閲/練習問題/vol2-01最終確認</td>
+      <td>5</td>
+      <td>2026-01-21</td>
+      <td>2026-01-21</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>parallel.ipynb</td>
+      <td>8</td>
+      <td>2023-07-29</td>
+      <td>2023-07-29</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>校正・校閲/練習問題/下巻3章見直し</td>
+      <td>11</td>
+      <td>2026-01-17</td>
+      <td>2026-01-17</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>校正・校閲/練習問題/下巻4章見直し</td>
+      <td>12</td>
+      <td>2026-01-17</td>
+      <td>2026-01-17</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</details>
+</div>
+<p>ここで作成した<code class="docutils literal notranslate"><span class="pre">df_tmp</span></code>は、<code class="docutils literal notranslate"><span class="pre">description</span></code>別の集計情報：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">seconds</span></code>：合計秒数</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">first_date</span></code>：最初の作業日</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">last_date</span></code>：最後の作業日</p></li>
+</ul>
+<p>を格納したデータフレームです。
+この集計情報を頼りに、<code class="docutils literal notranslate"><span class="pre">description</span></code>列に関する追加情報を手作業で追記していきます。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df_tmpをExcelファイルとして保存</span>
+<span class="c1"># 保存先のパスは、DIR_PREPディレクトリ内の&quot;tasks_before.xlsx&quot;</span>
+<span class="c1"># index=Falseで、DataFrameのインデックスを保存しない</span>
+<span class="n">df_tmp</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">DIR_PREP</span> <span class="o">/</span> <span class="s2">&quot;tasks_before.xlsx&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="task-formatting">
+<span id="id5"></span><h3><span class="section-number">3.2.2. </span>タスクの粒度調整と分類<a class="headerlink" href="#task-formatting" title="Link to this heading">#</a></h3>
+<p>ここまでの分析により、執筆時間データの<code class="docutils literal notranslate"><span class="pre">description</span></code>列の粒度が揃っていないという課題が明らかになりました。
+そこで、<code class="docutils literal notranslate"><span class="pre">description</span></code>、<code class="docutils literal notranslate"><span class="pre">seconds</span></code>、<code class="docutils literal notranslate"><span class="pre">first_date</span></code>、<code class="docutils literal notranslate"><span class="pre">last_date</span></code>をヒントに、タスクの概要を表す<code class="docutils literal notranslate"><span class="pre">task</span></code>列と、タスクの分類を表す<code class="docutils literal notranslate"><span class="pre">category</span></code>列を
+<strong>手作業で</strong>
+追加します：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">task</span></code>：<code class="docutils literal notranslate"><span class="pre">description</span></code>では粒度が揃っていないため、タスクの概要を清書</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">category</span></code>：<code class="docutils literal notranslate"><span class="pre">task</span></code>の分類を記載。ここでは大きく以下で分類</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">プロトタイピング</span></code>：本書の前身である<a class="reference external" href="https://kakeami.github.io/viz-madb/index.html" rel="noreferer noopener" target="_blank">マンガと学ぶデータビジュアライゼーション</a>のサイト設計・実装から公開までの一連の作業</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">企画立案</span></code>：技術評論社へ本書企画を持ち込んでから、章・節・項レベルの目次確定と本書全体のコンセプト詰めまでの作業</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">原稿執筆</span></code>：本書の原稿執筆に直接関わる一連の作業。データ準備や可視化<a class="footnote-reference brackets" href="#support" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>、草稿の執筆と提出など</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">校正校閲</span></code>：草稿の脱稿後、編集者と内容・構成・文章表現などを見直し、改善点の指摘・修正を行う作業</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">販促</span></code>：本書の販売を促進するための作業。練習問題の作成、SNSでの告知<a class="footnote-reference brackets" href="#exception" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>など</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">睡眠</span></code>：参考情報として、執筆期間中の睡眠時間を集計するためのカテゴリ</p></li>
+</ul>
+</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">tasks_before.xlsx</span></code>をコピーした<code class="docutils literal notranslate"><span class="pre">tasks.xlsx</span></code>ファイルを作成<a class="footnote-reference brackets" href="#overwrite" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>し、以下のように一つ一つ手作業で追記します。</p>
+<p><img alt="" src="../_images/task.png" /></p>
+<p>最終的には、以下のような<code class="docutils literal notranslate"><span class="pre">tasks.xlsx</span></code>を作成しました。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 前処理済みのタスクデータ（tasks.xlsx）をDataFrameとして読み込む</span>
+<span class="c1"># DIR_PREPディレクトリ内の&quot;tasks.xlsx&quot;ファイルを指定</span>
+<span class="n">df_tasks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">DIR_PREP</span> <span class="o">/</span> <span class="s2">&quot;tasks.xlsx&quot;</span><span class="p">)</span>
+
+<span class="c1"># df_tasksの最初の5行を表示</span>
+<span class="n">df_tasks</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>description</th>
+      <th>seconds</th>
+      <th>first_date</th>
+      <th>last_date</th>
+      <th>category</th>
+      <th>task</th>
+      <th>補足説明</th>
+      <th>checked</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>MADBで始めるデータビジュアライゼーション</td>
+      <td>4</td>
+      <td>2022-01-06</td>
+      <td>2022-01-06</td>
+      <td>プロトタイピング</td>
+      <td>プロトタイピング</td>
+      <td>プロトタイピング</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>校正・校閲/PDF確認/下巻-Phase3/ファイル構成・ページ数確認</td>
+      <td>14</td>
+      <td>2025-12-04</td>
+      <td>2025-12-04</td>
+      <td>校正校閲</td>
+      <td>PDF確認</td>
+      <td>NaN</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>parallel.ipynb</td>
+      <td>8</td>
+      <td>2023-07-29</td>
+      <td>2023-07-29</td>
+      <td>原稿執筆</td>
+      <td>その他執筆</td>
+      <td>その他執筆</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>校正・校閲/PDF確認/下巻-Phase5/索引候補確認</td>
+      <td>19</td>
+      <td>2025-12-20</td>
+      <td>2025-12-20</td>
+      <td>校正校閲</td>
+      <td>PDF確認</td>
+      <td>NaN</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>校正・校閲/PDF確認/下巻-第2章/空きスペース処理</td>
+      <td>20</td>
+      <td>2025-12-04</td>
+      <td>2025-12-04</td>
+      <td>校正校閲</td>
+      <td>PDF確認</td>
+      <td>NaN</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</details>
+</div>
+<p>これに基づき、<code class="docutils literal notranslate"><span class="pre">descpription</span></code>を<code class="docutils literal notranslate"><span class="pre">task</span></code>と<code class="docutils literal notranslate"><span class="pre">category</span></code>に変換する辞書を作成します。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df_tasksを&quot;description&quot;列でグループ化し、各グループの最初の&quot;task&quot;の値を取得</span>
+<span class="c1"># to_dict()を使って、&quot;description&quot;をキー、対応する&quot;task&quot;を値とする辞書に変換</span>
+<span class="n">desc2task</span> <span class="o">=</span> <span class="n">df_tasks</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">)[</span><span class="s2">&quot;task&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+
+<span class="c1"># df_tasksを&quot;description&quot;列でグループ化し、各グループの最初の&quot;category&quot;の値を取得</span>
+<span class="c1"># to_dict()を使って、&quot;description&quot;をキー、対応する&quot;category&quot;を値とする辞書に変換</span>
+<span class="n">desc2cat</span> <span class="o">=</span> <span class="n">df_tasks</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">)[</span><span class="s2">&quot;category&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">desc2task</span></code>は以下のような形状の辞書です：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;#11 2章の問題設定を大学生に変更&#39;</span><span class="p">:</span> <span class="s1">&#39;その他執筆&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;0章/はじめに&#39;</span><span class="p">:</span> <span class="s1">&#39;上巻0章執筆&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;10章/あとがき&#39;</span><span class="p">:</span> <span class="s1">&#39;その他執筆&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;10章/メディアミックス分析&#39;</span><span class="p">:</span> <span class="s1">&#39;下巻5-6章執筆&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;11章/あとがき&#39;</span><span class="p">:</span> <span class="s1">&#39;その他執筆&#39;</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>念の為、一度保存しておきます。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># desc2task辞書をJSONファイルとして保存</span>
+<span class="c1"># 保存先のパスは、DIR_PREPディレクトリ内の&quot;desc2task.json&quot;</span>
+<span class="n">save_json</span><span class="p">(</span><span class="n">DIR_PREP</span> <span class="o">/</span> <span class="s2">&quot;desc2task.json&quot;</span><span class="p">,</span> <span class="n">desc2task</span><span class="p">)</span>
+
+<span class="c1"># desc2cat辞書をJSONファイルとして保存</span>
+<span class="c1"># 保存先のパスは、DIR_PREPディレクトリ内の&quot;desc2cat.json&quot;</span>
+<span class="n">save_json</span><span class="p">(</span><span class="n">DIR_PREP</span> <span class="o">/</span> <span class="s2">&quot;desc2cat.json&quot;</span><span class="p">,</span> <span class="n">desc2cat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="id9">
+<h3><span class="section-number">3.2.3. </span>データの加工<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>先ほど作成した<code class="docutils literal notranslate"><span class="pre">desc2task.json</span></code>と<code class="docutils literal notranslate"><span class="pre">desc2cat.json</span></code>を用いて、<code class="docutils literal notranslate"><span class="pre">task</span></code>列と<code class="docutils literal notranslate"><span class="pre">category</span></code>列を追加しましょう。</p>
+<p>まず、作業対象となる元データ（<code class="docutils literal notranslate"><span class="pre">raw_*.csv</span></code>）等を読み込みます。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIR_TOGGL内の&quot;raw_&quot;で始まるファイルのパスを取得し、ソートする</span>
+<span class="n">ps_read</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">DIR_TOGGL</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;raw_*&quot;</span><span class="p">)))</span>
+
+<span class="c1"># ps_readのファイルパスを順にread_csvで読み込み、リストに格納</span>
+<span class="c1"># リストの要素（DataFrameオブジェクト）をconcatで連結し、一つのDataFrameにまとめる</span>
+<span class="c1"># ignore_index=Trueで、元のインデックスを無視し、新しいインデックスを付与</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps_read</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># DIR_PREP内の&quot;desc2cat.json&quot;ファイルを読み込み、辞書として取得</span>
+<span class="n">desc2cat</span> <span class="o">=</span> <span class="n">read_json</span><span class="p">(</span><span class="n">DIR_PREP</span> <span class="o">/</span> <span class="s2">&quot;desc2cat.json&quot;</span><span class="p">)</span>
+
+<span class="c1"># DIR_PREP内の&quot;desc2task.json&quot;ファイルを読み込み、辞書として取得</span>
+<span class="n">desc2task</span> <span class="o">=</span> <span class="n">read_json</span><span class="p">(</span><span class="n">DIR_PREP</span> <span class="o">/</span> <span class="s2">&quot;desc2task.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>本書執筆用プロジェクトに関するデータのうち、先頭5行を確認してみましょう。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># プロジェクトIDが180059875に該当するものを抽出し</span>
+<span class="c1"># 先頭5行のレコードを表示</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;project_id&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">180059875</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>project_id</th>
+      <th>description</th>
+      <th>date</th>
+      <th>seconds</th>
+      <th>row_number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2424</th>
+      <td>180059875</td>
+      <td>MADB/マンガと学ぶデータビジュアライゼーション</td>
+      <td>2021-12-08</td>
+      <td>1072</td>
+      <td>711</td>
+    </tr>
+    <tr>
+      <th>2425</th>
+      <td>180059875</td>
+      <td>MADB/マンガと学ぶデータビジュアライゼーション</td>
+      <td>2021-12-08</td>
+      <td>203</td>
+      <td>712</td>
+    </tr>
+    <tr>
+      <th>2426</th>
+      <td>180059875</td>
+      <td>MADB/マンガと学ぶデータビジュアライゼーション</td>
+      <td>2021-12-08</td>
+      <td>1094</td>
+      <td>713</td>
+    </tr>
+    <tr>
+      <th>2427</th>
+      <td>180059875</td>
+      <td>MADB/マンガと学ぶデータビジュアライゼーション</td>
+      <td>2021-12-08</td>
+      <td>862</td>
+      <td>714</td>
+    </tr>
+    <tr>
+      <th>2429</th>
+      <td>180059875</td>
+      <td>MADB/マンガと学ぶデータビジュアライゼーション</td>
+      <td>2021-12-08</td>
+      <td>1582</td>
+      <td>716</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</details>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">description</span></code>に基づき、<code class="docutils literal notranslate"><span class="pre">category</span></code>列と<code class="docutils literal notranslate"><span class="pre">task</span></code>列を追加します。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># desc2cat辞書を使って、dfの&quot;description&quot;列を&quot;category&quot;列にマッピング</span>
+<span class="c1"># &quot;description&quot;列の各値をキーとして、desc2catから対応する&quot;category&quot;の値を取得</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;category&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">desc2cat</span><span class="p">)</span>
+
+<span class="c1"># desc2task辞書を使って、dfの&quot;description&quot;列を&quot;task&quot;列にマッピング  </span>
+<span class="c1"># &quot;description&quot;列の各値をキーとして、desc2taskから対応する&quot;task&quot;の値を取得</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;task&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">desc2task</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>追加結果を見てみましょう。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># プロジェクトIDが180059875に該当するものを抽出し</span>
+<span class="c1"># 先頭5行のレコードを表示</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;project_id&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">180059875</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>project_id</th>
+      <th>description</th>
+      <th>date</th>
+      <th>seconds</th>
+      <th>row_number</th>
+      <th>category</th>
+      <th>task</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2424</th>
+      <td>180059875</td>
+      <td>MADB/マンガと学ぶデータビジュアライゼーション</td>
+      <td>2021-12-08</td>
+      <td>1072</td>
+      <td>711</td>
+      <td>プロトタイピング</td>
+      <td>プロトタイピング</td>
+    </tr>
+    <tr>
+      <th>2425</th>
+      <td>180059875</td>
+      <td>MADB/マンガと学ぶデータビジュアライゼーション</td>
+      <td>2021-12-08</td>
+      <td>203</td>
+      <td>712</td>
+      <td>プロトタイピング</td>
+      <td>プロトタイピング</td>
+    </tr>
+    <tr>
+      <th>2426</th>
+      <td>180059875</td>
+      <td>MADB/マンガと学ぶデータビジュアライゼーション</td>
+      <td>2021-12-08</td>
+      <td>1094</td>
+      <td>713</td>
+      <td>プロトタイピング</td>
+      <td>プロトタイピング</td>
+    </tr>
+    <tr>
+      <th>2427</th>
+      <td>180059875</td>
+      <td>MADB/マンガと学ぶデータビジュアライゼーション</td>
+      <td>2021-12-08</td>
+      <td>862</td>
+      <td>714</td>
+      <td>プロトタイピング</td>
+      <td>プロトタイピング</td>
+    </tr>
+    <tr>
+      <th>2429</th>
+      <td>180059875</td>
+      <td>MADB/マンガと学ぶデータビジュアライゼーション</td>
+      <td>2021-12-08</td>
+      <td>1582</td>
+      <td>716</td>
+      <td>プロトタイピング</td>
+      <td>プロトタイピング</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</details>
+</div>
+<p>想定通り、<code class="docutils literal notranslate"><span class="pre">category</span></code>列と<code class="docutils literal notranslate"><span class="pre">task</span></code>列が追加されていました。</p>
+<p>今後分析する際に便利ですから、執筆時間と睡眠時間でファイルを分けて保存しましょう。
+このとき、不要な列と行も削除しておきます。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &quot;date&quot;, &quot;seconds&quot;, &quot;category&quot;, &quot;task&quot;の列を選択して新しいデータフレームを作成</span>
+<span class="n">df_revised</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;seconds&quot;</span><span class="p">,</span> <span class="s2">&quot;category&quot;</span><span class="p">,</span> <span class="s2">&quot;task&quot;</span><span class="p">]]</span>
+
+<span class="c1"># &quot;task&quot;列の値が&quot;（除外）&quot;でない行のみを抽出し、インデックスを振り直す</span>
+<span class="n">df_revised</span> <span class="o">=</span> <span class="n">df_revised</span><span class="p">[</span><span class="n">df_revised</span><span class="p">[</span><span class="s2">&quot;task&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;（除外）&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># &quot;category&quot;列の値が&quot;睡眠&quot;でない行を抽出し、df_writingに代入</span>
+<span class="c1"># df_writingは執筆時間のデータを表す</span>
+<span class="n">df_writing</span> <span class="o">=</span> <span class="n">df_revised</span><span class="p">[</span><span class="n">df_revised</span><span class="p">[</span><span class="s2">&quot;category&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;睡眠&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># &quot;category&quot;列の値が&quot;睡眠&quot;である行を抽出し、df_sleepingに代入</span>
+<span class="c1"># df_sleepingは睡眠時間のデータを表す</span>
+<span class="n">df_sleeping</span> <span class="o">=</span> <span class="n">df_revised</span><span class="p">[</span><span class="n">df_revised</span><span class="p">[</span><span class="s2">&quot;category&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;睡眠&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>後段の分析内容を考慮し、睡眠時間に関しては一日ごとの総和を保存します。
+<strong>徹夜している日もある</strong>
+ため、<code class="docutils literal notranslate"><span class="pre">date_range</span></code>で期間内の全日付を列挙し、該当するレコードが存在しない場合は0埋めします。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df_sleepingを&quot;date&quot;, &quot;category&quot;, &quot;task&quot;列でグループ化し、&quot;seconds&quot;列の合計を計算</span>
+<span class="c1"># reset_index()でグループ化を解除し、新しいデータフレームを作成</span>
+<span class="n">df_sleeping</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df_sleeping</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;category&quot;</span><span class="p">,</span> <span class="s2">&quot;task&quot;</span><span class="p">])[</span><span class="s2">&quot;seconds&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="c1"># &quot;date&quot;列をdatetime型に変換</span>
+<span class="n">df_sleeping</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_sleeping</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">])</span>
+
+<span class="c1"># df_sleepingの&quot;date&quot;列から最も古い日付と最も新しい日付を取得</span>
+<span class="n">min_date</span> <span class="o">=</span> <span class="n">df_sleeping</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">max_date</span> <span class="o">=</span> <span class="n">df_sleeping</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+<span class="c1"># min_dateからmax_dateまでの日付範囲を作成（freq=&quot;D&quot;で1日ごと）</span>
+<span class="n">date_range</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">min_date</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">max_date</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+
+<span class="c1"># 日付範囲をデータフレームに変換</span>
+<span class="n">df_date_range</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="n">date_range</span><span class="p">})</span>
+
+<span class="c1"># df_date_rangeとdf_sleepingを&quot;date&quot;列で外部結合（how=&quot;left&quot;）</span>
+<span class="c1"># 結合後、&quot;category&quot;, &quot;task&quot;, &quot;seconds&quot;列の欠損値を処理</span>
+<span class="c1"># 欠損値は、それぞれ&quot;睡眠&quot;, &quot;睡眠&quot;, 0で埋める（徹夜を表す）</span>
+<span class="n">df_sleeping</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_date_range</span><span class="p">,</span> <span class="n">df_sleeping</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">df_sleeping</span><span class="p">[</span><span class="s2">&quot;category&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_sleeping</span><span class="p">[</span><span class="s2">&quot;category&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;睡眠&quot;</span><span class="p">)</span>
+<span class="n">df_sleeping</span><span class="p">[</span><span class="s2">&quot;task&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_sleeping</span><span class="p">[</span><span class="s2">&quot;task&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;睡眠&quot;</span><span class="p">)</span>
+<span class="n">df_sleeping</span><span class="p">[</span><span class="s2">&quot;seconds&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_sleeping</span><span class="p">[</span><span class="s2">&quot;seconds&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>執筆時間を格納した<code class="docutils literal notranslate"><span class="pre">df_writing</span></code>の中身を見てみましょう。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 執筆時間を格納したデータフレームの先頭5行を確認</span>
+<span class="n">df_writing</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>seconds</th>
+      <th>category</th>
+      <th>task</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2021-12-08</td>
+      <td>1072</td>
+      <td>プロトタイピング</td>
+      <td>プロトタイピング</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021-12-08</td>
+      <td>203</td>
+      <td>プロトタイピング</td>
+      <td>プロトタイピング</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021-12-08</td>
+      <td>1094</td>
+      <td>プロトタイピング</td>
+      <td>プロトタイピング</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2021-12-08</td>
+      <td>862</td>
+      <td>プロトタイピング</td>
+      <td>プロトタイピング</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2021-12-08</td>
+      <td>1582</td>
+      <td>プロトタイピング</td>
+      <td>プロトタイピング</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</details>
+</div>
+<p>睡眠時間を格納した<code class="docutils literal notranslate"><span class="pre">df_sleeping</span></code>の中身を見てみましょう。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 睡眠時間を格納したデータフレームの先頭5行を確認</span>
+<span class="n">df_sleeping</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>category</th>
+      <th>task</th>
+      <th>seconds</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2019-02-23</td>
+      <td>睡眠</td>
+      <td>睡眠</td>
+      <td>24241.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2019-02-24</td>
+      <td>睡眠</td>
+      <td>睡眠</td>
+      <td>21131.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2019-02-25</td>
+      <td>睡眠</td>
+      <td>睡眠</td>
+      <td>17259.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2019-02-26</td>
+      <td>睡眠</td>
+      <td>睡眠</td>
+      <td>21990.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2019-02-27</td>
+      <td>睡眠</td>
+      <td>睡眠</td>
+      <td>22461.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</details>
+</div>
+<p>問題無さそうなので、<code class="docutils literal notranslate"><span class="pre">DIR_OUT</span></code>以下に保存します。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df_writingおよびdf_sleepingをDIR_OUT以下に保存</span>
+<span class="n">df_writing</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">DIR_OUT</span> <span class="o">/</span> <span class="s2">&quot;writing_time.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df_sleeping</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">DIR_OUT</span> <span class="o">/</span> <span class="s2">&quot;sleeping_time.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="id10">
+<h2><span class="section-number">3.3. </span>草稿の前処理<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<p>ここでは、各章の
+<strong>草稿</strong>
+<a class="footnote-reference brackets" href="#draft" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>
+の文字列を集計し、分析の補助情報として用いる準備をします。</p>
+<p>本書は技術評論社の独自ルールに従う<code class="docutils literal notranslate"><span class="pre">md</span></code>形式で執筆されました。
+例えば、</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">**</span> <span class="pre">**</span></code>：太字</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;/fn&gt;&lt;fn&gt;</span></code>：脚注</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">![]()</span></code>：図</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">```</span> <span class="pre">```</span></code>：コードブロック</p></li>
+</ul>
+<p>のようなものです。
+これらの情報も集計すると、各章の特徴を解釈しやすくなるかもしれません。</p>
+<section id="id12">
+<h3><span class="section-number">3.3.1. </span>概要確認<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p>まず、草稿のディレクトリ構造を<code class="docutils literal notranslate"><span class="pre">tree</span></code>コマンドで確認します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>../../data/input
+├── vol1
+│   ├── 00.md
+│   ├── 01.md
+│   ├── 02.md
+│   ├── 03.md
+│   ├── 04.md
+│   ├── 05.md
+│   ├── 06.md
+│   └── 07.md
+└── vol2
+    ├── 00.md
+    ├── 01.md
+    ├── 02.md
+    ├── 03.md
+    ├── 04.md
+    ├── 05.md
+    ├── 06.md
+    └── appendix.md
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">vol1</span></code>は上巻、<code class="docutils literal notranslate"><span class="pre">vol2</span></code>は下巻に対応しています。
+<code class="docutils literal notranslate"><span class="pre">00.md</span></code>はそれぞれ前付けです。
+それ以外は、基本的に章ごとにファイルを分けて管理してあります。</p>
+<p>処理しやすいよう、該当するファイルのパスを取得します。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIR_DRAFT内のすべてのサブディレクトリ内の.mdファイルのパスを取得し、ソートする</span>
+<span class="c1"># list()で、glob()が返すジェネレータをリストに変換していることに注意</span>
+<span class="n">ps_draft</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">DIR_DRAFT</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*/*.md&quot;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># パス一覧を確認</span>
+<span class="n">ps_draft</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[PosixPath(&#39;../../data/input/vol1/00.md&#39;),
+ PosixPath(&#39;../../data/input/vol1/01.md&#39;),
+ PosixPath(&#39;../../data/input/vol1/02.md&#39;),
+ PosixPath(&#39;../../data/input/vol1/03.md&#39;),
+ PosixPath(&#39;../../data/input/vol1/04.md&#39;),
+ PosixPath(&#39;../../data/input/vol1/05.md&#39;),
+ PosixPath(&#39;../../data/input/vol1/06.md&#39;),
+ PosixPath(&#39;../../data/input/vol1/07.md&#39;),
+ PosixPath(&#39;../../data/input/vol2/00.md&#39;),
+ PosixPath(&#39;../../data/input/vol2/01.md&#39;),
+ PosixPath(&#39;../../data/input/vol2/02.md&#39;),
+ PosixPath(&#39;../../data/input/vol2/03.md&#39;),
+ PosixPath(&#39;../../data/input/vol2/04.md&#39;),
+ PosixPath(&#39;../../data/input/vol2/05.md&#39;),
+ PosixPath(&#39;../../data/input/vol2/06.md&#39;),
+ PosixPath(&#39;../../data/input/vol2/appendix.md&#39;)]
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>例えば、<code class="docutils literal notranslate"><span class="pre">../../data/input/vol1/00.md</span></code>の中身を見てみましょう。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># headコマンドで中身を確認</span>
+<span class="o">!</span>head<span class="w"> </span><span class="s2">&quot;../../data/input/vol1/00.md&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># はじめに
+
+## まえがき
+
+本書は、マンガ・アニメ・ゲームのデータを使って、楽しくデータ可視化の基礎を学ぶ入門書です。
+
+データ可視化とは、複雑なデータを人間が見てわかる表現に変換する技術です。
+身の回りを見渡せば、様々なデータ可視化の例を見つけることができます。
+例えば、新型コロナウイルスの感染者数の推移を表す折れ線グラフや、天気予報の天気図はその一例です。
+普段生活していて出会う「グラフ」と呼ばれるもののほとんどは、データ可視化と関わりがあると言っても過言ではありません。
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>出版時の表現とは微妙に異なっているかもしれませんが、
+草稿時は上記のように記載していました。</p>
+<p>イメージが掴めたところで、具体的な加工作業に入りましょう。</p>
+</section>
+<section id="draft-stats">
+<span id="id13"></span><h3><span class="section-number">3.3.2. </span>統計情報の取得<a class="headerlink" href="#draft-stats" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">md</span></code>ファイルを読み込み、文字数、行数、句読点の数、脚注の数、画像の数、コードブロックの数、太字の数などの集計情報を取得する関数を定義します。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_stats</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    指定されたMarkdownファイルの統計情報を計算し、辞書形式で返す。</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    file_path : Path</span>
+<span class="sd">        統計情報を計算するMarkdownファイルのパス。</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        以下のキーと値を持つ辞書：</span>
+<span class="sd">        - &quot;vol&quot;: ファイルが属する巻の名前</span>
+<span class="sd">        - &quot;sec&quot;: ファイルのセクション番号</span>
+<span class="sd">        - &quot;chars&quot;: ファイル内の文字数</span>
+<span class="sd">        - &quot;lines&quot;: ファイルの行数</span>
+<span class="sd">        - &quot;commas&quot;: ファイル内の読点（、）の数</span>
+<span class="sd">        - &quot;periods&quot;: ファイル内の句点（。）の数</span>
+<span class="sd">        - &quot;size&quot;: ファイルのバイトサイズ</span>
+<span class="sd">        - &quot;fns&quot;: ファイル内の脚注タグ（&lt;/fn&gt;）の数</span>
+<span class="sd">        - &quot;images&quot;: ファイル内の画像タグ（![）の数</span>
+<span class="sd">        - &quot;codes&quot;: ファイル内のコードブロック（```）の数</span>
+<span class="sd">        - &quot;bolds&quot;: ファイル内の太字（**）の数</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        
+        <span class="c1"># ファイル内の文字数を計算</span>
+        <span class="n">chars</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+        
+        <span class="c1"># ファイルの行数を計算（改行文字の数 + 1）</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        
+        <span class="c1"># ファイル内の読点（、）の数を計算</span>
+        <span class="n">commas</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;、&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># ファイル内の句点（。）の数を計算</span>
+        <span class="n">periods</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;。&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># ファイルのバイトサイズを取得</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="n">file_path</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span>
+        
+        <span class="c1"># ファイル内の脚注タグ（&lt;/fn&gt;）の数を計算</span>
+        <span class="n">fns</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;&lt;/fn&gt;&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># ファイル内の画像タグ（![）の数を計算</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;![&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># ファイル内のコードブロック（```）の数を計算（//で割り算の商を求める）</span>
+        <span class="n">codes</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;```&quot;</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        
+        <span class="c1"># ファイル内の太字（**）の数を計算（//で割り算の商を求める）</span>
+        <span class="n">bolds</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;**&quot;</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;vol&quot;</span><span class="p">:</span> <span class="n">file_path</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span>  <span class="c1"># ファイルが属する巻の名前</span>
+        <span class="s2">&quot;sec&quot;</span><span class="p">:</span> <span class="n">file_path</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span>  <span class="c1"># ファイルのセクション番号</span>
+        <span class="s2">&quot;chars&quot;</span><span class="p">:</span> <span class="n">chars</span><span class="p">,</span>  <span class="c1"># ファイル内の文字数</span>
+        <span class="s2">&quot;lines&quot;</span><span class="p">:</span> <span class="n">lines</span><span class="p">,</span>  <span class="c1"># ファイルの行数</span>
+        <span class="s2">&quot;commas&quot;</span><span class="p">:</span> <span class="n">commas</span><span class="p">,</span>  <span class="c1"># ファイル内の読点（、）の数</span>
+        <span class="s2">&quot;periods&quot;</span><span class="p">:</span> <span class="n">periods</span><span class="p">,</span>  <span class="c1"># ファイル内の句点（。）の数</span>
+        <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="n">size</span><span class="p">,</span>  <span class="c1"># ファイルのバイトサイズ</span>
+        <span class="s2">&quot;fns&quot;</span><span class="p">:</span> <span class="n">fns</span><span class="p">,</span>  <span class="c1"># ファイル内の脚注タグ（&lt;/fn&gt;）の数</span>
+        <span class="s2">&quot;images&quot;</span><span class="p">:</span> <span class="n">images</span><span class="p">,</span>  <span class="c1"># ファイル内の画像タグ（![）の数</span>
+        <span class="s2">&quot;codes&quot;</span><span class="p">:</span> <span class="n">codes</span><span class="p">,</span>  <span class="c1"># ファイル内のコードブロック（```）の数  </span>
+        <span class="s2">&quot;bolds&quot;</span><span class="p">:</span> <span class="n">bolds</span><span class="p">,</span>  <span class="c1"># ファイル内の太字（**）の数</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>この関数を用い、章ごとの統計情報をデータフレーム形式で整理しましょう。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ps_draftのファイルパスを順に get_stats関数に渡し、結果をリストに格納</span>
+<span class="c1"># リスト内包表記を使用して、各ファイルパスに対して get_stats関数を適用</span>
+<span class="n">stats</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_stats</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps_draft</span><span class="p">]</span>
+
+<span class="c1"># get_stats関数が返した辞書のリストを元に、データフレームを作成</span>
+<span class="n">df_stats</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">df_stats</span></code>の先頭5行を確認してみます。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># headメソッドで先頭5行を確認</span>
+<span class="n">df_stats</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>vol</th>
+      <th>sec</th>
+      <th>chars</th>
+      <th>lines</th>
+      <th>commas</th>
+      <th>periods</th>
+      <th>size</th>
+      <th>fns</th>
+      <th>images</th>
+      <th>codes</th>
+      <th>bolds</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>vol1</td>
+      <td>00</td>
+      <td>13754</td>
+      <td>562</td>
+      <td>248</td>
+      <td>184</td>
+      <td>31233</td>
+      <td>6</td>
+      <td>7</td>
+      <td>13</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>vol1</td>
+      <td>01</td>
+      <td>28799</td>
+      <td>1005</td>
+      <td>703</td>
+      <td>396</td>
+      <td>70533</td>
+      <td>41</td>
+      <td>60</td>
+      <td>0</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>vol1</td>
+      <td>02</td>
+      <td>35034</td>
+      <td>1340</td>
+      <td>893</td>
+      <td>540</td>
+      <td>86916</td>
+      <td>25</td>
+      <td>110</td>
+      <td>1</td>
+      <td>105</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>vol1</td>
+      <td>03</td>
+      <td>46086</td>
+      <td>1872</td>
+      <td>629</td>
+      <td>396</td>
+      <td>91200</td>
+      <td>18</td>
+      <td>58</td>
+      <td>51</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>vol1</td>
+      <td>04</td>
+      <td>78336</td>
+      <td>3033</td>
+      <td>1260</td>
+      <td>751</td>
+      <td>173095</td>
+      <td>27</td>
+      <td>159</td>
+      <td>75</td>
+      <td>126</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</details>
+</div>
+<p>問題無さそうですので、<code class="docutils literal notranslate"><span class="pre">DIR_OUT</span></code>以下に保存します。</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIR_OUT配下に`draft_stats.csv`という名前で保存</span>
+<span class="n">df_stats</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">DIR_OUT</span> <span class="o">/</span> <span class="s2">&quot;draft_stats.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="id14">
+<h2><span class="section-number">3.4. </span>前処理のまとめ<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
+<p>本章では、分析の前段階となる「データの仕込み」を行いました。
+一見すると地味な作業ですが、ここでの処理が後続の可視化の品質を左右すると考えています。
+今回行った処理のポイントを整理すると、以下の3点に集約されます。</p>
+<ul class="simple">
+<li><p><strong>タスク名の表記ゆれ対応</strong> ： 自由入力に近いTogglの<code class="docutils literal notranslate"><span class="pre">description</span></code>を、手作業で定義した<code class="docutils literal notranslate"><span class="pre">task</span></code>と<code class="docutils literal notranslate"><span class="pre">category</span></code>にマッピング</p></li>
+<li><p><strong>睡眠時間の欠損値補完</strong> ： 睡眠データにおける「記録がない＝徹夜（あるいは記録忘れ）」という事象を、<code class="docutils literal notranslate"><span class="pre">date_range</span></code> を用いた0埋め処理</p></li>
+<li><p><strong>草稿データの統計処理</strong> ： 単なる草稿（Markdown）から、文字数・句読点数・コードブロック数といった統計情報を抽出</p></li>
+</ul>
+<p>以上の工程を経て、手元には以下の3つのファイルが揃いました。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">writing_time.csv</span></code> （執筆活動の記録）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sleeping_time.csv</span></code> （生活リズムの記録）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">draft_stats.csv</span></code>（草稿の統計情報）</p></li>
+</ul>
+<p>次章では、これらのデータを用いて、執筆プロセスの全体像を俯瞰する基礎分析へと進みます。</p>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="support" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">1</a><span class="fn-bracket">]</span></span>
+<p>サポートサイトの構築作業も含みます。</p>
+</aside>
+<aside class="footnote brackets" id="exception" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">2</a><span class="fn-bracket">]</span></span>
+<p>本ブログの作成も広い意味では販促活動ですが、簡単のため分析対象から除外しました。</p>
+</aside>
+<aside class="footnote brackets" id="overwrite" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">3</a><span class="fn-bracket">]</span></span>
+<p><code class="docutils literal notranslate"><span class="pre">tasks_before.xlsx</span></code>のまま追記作業に進むと、そのことを忘れて <code class="docutils literal notranslate"><span class="pre">.to_excel</span></code>を再実行したときに、上書き保存されてしまうことがあります。手作業の前後でファイル名を変えているのは、自分の記憶力を信用していないためです。</p>
+</aside>
+<aside class="footnote brackets" id="draft" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">4</a><span class="fn-bracket">]</span></span>
+<p>校正用のゲラによるやりとりは基本的にPDFファイル（のコメント機能）を用いるため、分析対象とするには気合いが必要です。簡単のため、ここではその前段階のマークダウンファイルを分析対象とします。つまり、 <strong>今回分析対象とする文字列は、厳密には出版時のものとは一致しません</strong> 。完成物ではないことを強調するため、「草稿」という表現を用いました。</p>
+</aside>
+</aside>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="download.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>取得</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="eda.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>基礎分析</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.1. 環境構築</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.2. 執筆時間・睡眠時間の前処理</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.2.1. 概要確認</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-formatting">3.2.2. タスクの粒度調整と分類</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">3.2.3. データの加工</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">3.3. 草稿の前処理</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">3.3.1. 概要確認</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draft-stats">3.3.2. 統計情報の取得</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">3.4. 前処理のまとめ</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kakeami
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  © Copyright 2026 by <a rel="kakeami" href="https://github.com/kakeami"> Kakeami </a>. このブログは<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 ライセンス</a>の下に提供されています． <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>　ただし，ブログ中のコードセル部分は<a rel="license" href="https://opensource.org/licenses/MIT">MITライセンス</a>の下に提供されています．
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

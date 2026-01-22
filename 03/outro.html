@@ -1,0 +1,617 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>9. おわりに &#8212; 技術書を出版するまでの1161時間50分38秒</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '03/outro';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/clock.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="8. 関係を見る" href="../02/assocs.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/clock.png" class="logo__image only-light" alt="技術書を出版するまでの1161時間50分38秒 - Home"/>
+    <script>document.write(`<img src="../_static/clock.png" class="logo__image only-dark" alt="技術書を出版するまでの1161時間50分38秒 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">データの準備</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01/track.html">1. 記録</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01/download.html">2. 取得</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01/preprocess.html">3. 前処理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01/eda.html">4. 基礎分析</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">データの可視化</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../02/amounts.html">5. 量を見る</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02/dists.html">6. 分布を見る</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02/props.html">7. 内訳を見る</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02/assocs.html">8. 関係を見る</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">あとがき</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. おわりに</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/kakeami/road-to-vizbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/kakeami/road-to-vizbook/issues/new?title=Issue%20on%20page%20%2F03/outro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/03/outro.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>おわりに</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">9.1. 自分自身との付き合い方</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">9.2. 技術書執筆の作業量</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">9.3. 本書の舞台裏</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">9.4. 次回作にご期待ください</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">9. </span>おわりに<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>本ブログでは、<a class="reference internal" href="../index.html#target"><span class="std std-ref">以下の読者を想定</span></a>し、本書執筆に関わる作業時間を可視化しました：</p>
+<ul class="simple">
+<li><p><strong>自分自身</strong> ：集中力のない自分といかにつきあっていくか</p></li>
+<li><p><strong>未来の執筆者</strong> ：技術書の執筆にどれくらい時間がかかるか</p></li>
+<li><p><strong>本書の読者</strong> ：本書の裏側で何が起こっていたか</p></li>
+</ul>
+<p>最後に、それぞれの観点でまとめたいと思います。</p>
+<section id="id2">
+<h2><span class="section-number">9.1. </span>自分自身との付き合い方<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>「10分でいいからやる」を座右の銘にしたいと思います。</p>
+<p><a class="reference internal" href="../02/props.html#pie"><span class="std std-ref">円グラフによる可視化</span></a>や<a class="reference internal" href="../02/dists.html#hist"><span class="std std-ref">ヒストグラムによる可視化</span></a>によると、</p>
+<ul class="simple">
+<li><p><strong>作業時間</strong> という観点では、全体のうち約四分の一は30分以下の作業で構成されている</p></li>
+<li><p><strong>作業回数</strong> という観点では、10分程度の作業が最も多い</p></li>
+</ul>
+<p>ということがわかりました。
+私はこの結果を「日々の小さな積み重ねが最終的には大きな成果につながる」と解釈し、とても勇気づけられました。</p>
+<p>と同時に、まとまった作業時間を確保することの重要性も明らかになりました。
+年別の作業時間内訳を見ると、2024年になって30分以上の作業時間が飛躍的に増加しています。
+この時期に本書の多くの部分が完成したことを考えると、「小さく前進し続ける」戦略と「集中的に進める」戦略の両輪で回すことがポイントだったのかもしれません。
+改めて、作業環境を支えてくれた家族には心から感謝しています。
+特に妻の理解と支援がなければ、この本が完成することはありませんでした。</p>
+<p>本書の執筆を通して、
+こと私という人間の操縦においては、
+「やる気」が起きるのを待つのは得策ではない、ということに気づきました。
+そもそも私は怠惰なので、やる気に溢れた日は一年の中で数える程度しかありません。
+基本的には常に起き上がりたくない、働きたくないと思っています。</p>
+<p>そんな私であっても、手を付け始めてしまえば次第にモチベーションが上がってきます。
+様々なブログで言及されていますが、重要なのは
+<strong>如何に自分を騙し、初動の心理的ハードルを下げるか</strong>
+だと感じています。
+私の場合は、とにかく10分だけキーボードを叩くというルールがうまく働きました。
+トイレも10分なら我慢できるはず、眠かったら10分後に横になれば良い、と自分に鞭打って、何とか社会生活を送っています。</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">9.2. </span>技術書執筆の作業量<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>本書の執筆と関連作業には、合計で1160時間以上を費やしています。
+これは週40時間のフルタイム労働で計算すると、約半年に相当する量です。</p>
+<p><a class="reference internal" href="../02/amounts.html#bar"><span class="std std-ref">棒グラフ</span></a>で示した通り、カテゴリー別の作業時間を見ると、原稿執筆に圧倒的に多くの時間が費やされました。
+プロトタイピングや企画立案と比較して、実に約10倍もの時間です。
+特に、上巻3-4章や下巻5-6章などのハンズオンを扱う章と、上巻1-2章のように文献調査が必要になる章では、作業時間が突出していました。</p>
+<p>本書がやや特殊な作りである点は注意が必要です。
+マンガ・アニメ・ゲームデータという特殊なテーマを扱い、可視化と分析のコードをほぼすべて自作し、キャラクターによる対話形式を取り入れ、さらに分冊化するという複雑な構造になりました。
+また、私自身も執筆経験が少なく、効率が良かったとは言い難い部分もあります。</p>
+<p>しかし、それでも一つの基準にはなるのではないかと思います。
+特に、将来の執筆者の方々の参考として、以下のポイントをお伝えしたいと思います：</p>
+<ul class="simple">
+<li><p><strong>分量と時間の関係</strong>：<a class="reference internal" href="../01/eda.html#eda-draft"><span class="std std-ref">基礎分析</span></a>で示したように、本書は上下巻合わせて約80万文字で構成されています。これに約1160時間かかりましたので、単純計算で1万文字あたり14.5時間かかる計算になります。</p></li>
+<li><p><strong>継続の重要性</strong>：毎日少しでも進めることが、長期プロジェクトを完遂する鍵でした。<a class="reference internal" href="../02/assocs.html#line"><span class="std std-ref">折れ線グラフ</span></a>で示した通り、まとまった時間が取れない日も、10分だけでも作業することで執筆の流れを維持できました。</p></li>
+</ul>
+<p>参考になれば幸いです。</p>
+</section>
+<section id="id4">
+<h2><span class="section-number">9.3. </span>本書の舞台裏<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>ネガティブなことも書きましたが、本書の執筆は純粋に楽しいものでした。
+分析を通して新たな発見がいくつもあり、
+これまで以上にマンガ、アニメ、そしてゲームを好きになりました。</p>
+<p><a class="reference internal" href="../02/assocs.html#conn"><span class="std std-ref">連結散布図</span></a>で見ると、特に2024年前半には執筆作業が最も集中した時期であったことが分かります。
+この時期は平均作業時間が大幅に増加し、一方で睡眠時間はわずかに減少しています。
+この緊張感のある時期を乗り越えられたのは、ひとえに執筆内容そのものへの関心があったからこそだと思います。
+これは本書の中でも何度か述べた「好きなものを分析すると学びが深まる」という主張を、私自身が体現した形になりました。</p>
+<p>また、本書にはマンガ、アニメ、ゲームに絡めた小ネタをふんだんに盛り込むことができました。
+書籍全体を通したこのような仕掛けは、単著ならではの楽しみの一つです。
+読者の皆様にも、同様に楽しんでいただければと願っています。</p>
+<p>改めて、日本におけるマンガ、アニメ、ゲームの層の厚さに驚かされました。
+メディア芸術データベースだけでも膨大なデータがあり、本書で扱えているのはその片鱗に過ぎません。
+この時代の日本に生まれた幸運に感謝しています。</p>
+</section>
+<section id="id5">
+<h2><span class="section-number">9.4. </span>次回作にご期待ください<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>本書の完成はゴールではなく、新たな始まりだと考えています。
+特に二つの方向性<a class="footnote-reference brackets" href="#parenting" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>に強い関心を持っています。</p>
+<p>一つ目は、本書の内容を英訳して世界に発信することです。
+日本のマンガ・アニメ・ゲームは世界中で人気がありますが、それらを題材にしたデータ分析の解説書は国際的にもあまり見かけません。
+本書のアプローチは、全世界の読者にとっても、データサイエンスへの入門として興味深いものになるのではないかと考えています。
+手始めにこのブログを英訳しようと思っています。</p>
+<p>二つ目は、執筆のために遅れが生じた、ジョージア工科大学大学院を修了することです。
+本書の執筆を通じて得た知見を学術的な観点からも深め、より専門的な研究に繋げていきたいと考えています。</p>
+<p>これからも「好きなものを通じて学ぶ」という姿勢を大切に、新たな挑戦を続けていきたいと思います。
+本書とこのブログが、読者の皆さんにとって何らかの形で参考になれば幸いです。
+最後までお読みいただき、ありがとうございました。</p>
+<p>ちなみに、本ブログの作成には合計
+<strong>84時間00分26秒</strong>
+かかりました<a class="footnote-reference brackets" href="#exclude" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#error" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>。</p>
+<p><img alt="" src="../_images/total.png" /></p>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="parenting" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">1</a><span class="fn-bracket">]</span></span>
+<p>本書とは直接関連ありませんが、家族への恩返しは最も重要なタスクの一つです。</p>
+</aside>
+<aside class="footnote brackets" id="exclude" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">2</a><span class="fn-bracket">]</span></span>
+<p>84時間00分26秒は、1161時間50分38秒に含まれていません。</p>
+</aside>
+<aside class="footnote brackets" id="error" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">3</a><span class="fn-bracket">]</span></span>
+<p>厳密には、この文章を入力してからパブリッシュするまでの時間を計測できていません。</p>
+</aside>
+</aside>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../02/assocs.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>関係を見る</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">9.1. 自分自身との付き合い方</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">9.2. 技術書執筆の作業量</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">9.3. 本書の舞台裏</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">9.4. 次回作にご期待ください</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kakeami
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  © Copyright 2026 by <a rel="kakeami" href="https://github.com/kakeami"> Kakeami </a>. このブログは<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 ライセンス</a>の下に提供されています． <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>　ただし，ブログ中のコードセル部分は<a rel="license" href="https://opensource.org/licenses/MIT">MITライセンス</a>の下に提供されています．
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
