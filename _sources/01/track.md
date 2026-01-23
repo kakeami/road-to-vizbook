@@ -2,6 +2,13 @@
 
 ![](../images/01/ov1.png)
 
+```{admonition} Summary
+:class: tip
+
+- Todoistで管理したタスクを、Toggl trackと連携して作業時間を記録した
+- 執筆中に構成が大きく変わったため、個別に作業時間を分解できない章がいくつかある（上巻1-2章、上巻3-4章、下巻5-6章）
+```
+
 まず必要になるのは、作業時間の記録です。
 私は、
 [Todoist](https://todoist.com/ja)

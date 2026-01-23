@@ -411,6 +411,13 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">2. </span>取得<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p><img alt="" src="../_images/ov2.png" /></p>
+<div class="tip admonition">
+<p class="admonition-title">Summary</p>
+<ul class="simple">
+<li><p>Toggl API v9を用いて、全ての作業時間と、参考までに睡眠時間のデータを取得した</p></li>
+<li><p>24時またぎのレコードに対応するため、「終了時刻」を基準に日付を割り付けた</p></li>
+</ul>
+</div>
 <p><a class="reference external" href="https://engineering.toggl.com/docs/" rel="noreferer noopener" target="_blank">Toggl API</a>を用いて、執筆時間データを取得します。
 Toggl APIは、Togglに記録されたタイムトラッキングデータにプログラムからアクセスするためのインターフェースです。
 2024年12月7日現在は <strong>v9</strong> が最新で、v8は近い将来に非推奨となる予定です。</p>

@@ -412,6 +412,14 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">3. </span>前処理<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p><img alt="" src="../_images/ov3.png" /></p>
+<div class="tip admonition">
+<p class="admonition-title">Summary</p>
+<ul class="simple">
+<li><p>(Todoistのタスク名 -&gt; <code class="docutils literal notranslate"><span class="pre">category</span></code>, <code class="docutils literal notranslate"><span class="pre">task</span></code>)の変換表を作成し、レコードの粒度を揃えた</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">category</span></code>として、<code class="docutils literal notranslate"><span class="pre">プロトタイピング</span></code>、<code class="docutils literal notranslate"><span class="pre">企画立案</span></code>、<code class="docutils literal notranslate"><span class="pre">原稿執筆</span></code>、<code class="docutils literal notranslate"><span class="pre">校正校閲</span></code>、そして<code class="docutils literal notranslate"><span class="pre">販促</span></code>を設定した</p></li>
+<li><p>草稿は直接可視化対象とせず、各章の文字数、行数、句読点数、脚注数、などの統計情報を扱う</p></li>
+</ul>
+</div>
 <p>執筆時間の分析に必要なデータの前処理について説明します。
 具体的には、Togglから取得した生のデータを整形し、分析に適した形に加工します。
 また、個人的に興味があったため、草稿の集計情報も取得します。</p>
