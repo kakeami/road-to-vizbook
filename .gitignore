@@ -36,6 +36,8 @@ mypy.ini
 mypy_files.txt
 requirements_jupyterbook.txt
 *.pptx
+package.json
+package-lock.json
 
 # --- Credentials & Secrets ---
 *.pem
