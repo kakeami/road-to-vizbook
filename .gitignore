@@ -25,6 +25,8 @@ book/_build/
 .jupyter_cache/
 
 # --- Project Specific ---
+src/
+!src/hide_cells.py
 data/
 old/
 private/
