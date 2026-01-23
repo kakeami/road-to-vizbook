@@ -1,0 +1,31 @@
+/* tipクラスのadmonitionを黄色系に変更 */
+.admonition.tip,
+div.admonition.tip {
+    border-color: #d4a800 !important;
+}
+
+.admonition.tip > .admonition-title,
+div.admonition.tip > .admonition-title {
+    background-color: #fef9e7 !important;
+}
+
+.admonition.tip > .admonition-title::after,
+div.admonition.tip > .admonition-title::after {
+    color: #d4a800 !important;
+}
+
+/* ダークモード対応 */
+html[data-theme="dark"] .admonition.tip,
+html[data-theme="dark"] div.admonition.tip {
+    border-color: #f1c40f !important;
+}
+
+html[data-theme="dark"] .admonition.tip > .admonition-title,
+html[data-theme="dark"] div.admonition.tip > .admonition-title {
+    background-color: rgba(241, 196, 15, 0.15) !important;
+}
+
+html[data-theme="dark"] .admonition.tip > .admonition-title::after,
+html[data-theme="dark"] div.admonition.tip > .admonition-title::after {
+    color: #f1c40f !important;
+}
