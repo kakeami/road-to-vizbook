@@ -45,6 +45,12 @@ sphinx:
     # 特定の警告を無視する設定
     suppress_warnings:
       - mystnb.unknown_mime_type
+    # Open Graph設定（Google検索結果のサイト名・説明に影響）
+    ogp_site_name: "技術書を出版するまでの1161時間50分38秒"
+    ogp_site_url: "https://kakeami.github.io/road-to-vizbook/"
+    ogp_description_length: 200
+    ogp_type: "website"
+    ogp_image: "https://kakeami.github.io/road-to-vizbook/_static/clock.png"
 
 
 parse:
