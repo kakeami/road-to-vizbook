@@ -229,9 +229,11 @@
 都内マーケティング会社で数理モデルの研究に従事する傍ら、ジョージア工科大学大学院で計算機科学を専攻。
 二児の父。
 
-- **しずかなインターネット** - [`kakeami`](https://sizu.me/kakeami)
+- [Kakeami's Blog](https://kakeami.github.io/blog/)
+- X - [`_kakeami`](https://x.com/_kakeami)
 - GitHub - [`kakeami`](https://github.com/kakeami)
 - Zenn.dev - [`kakeami`](https://zenn.dev/kakeami)
+- しずかなインターネット - [`kakeami`](https://sizu.me/kakeami)
 - Email - kakeami `dot` contact `at` gmail `dot` com
 :::
 ::::
